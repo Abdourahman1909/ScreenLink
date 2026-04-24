@@ -19,44 +19,49 @@ ScreenLink lets you **share any window** from your laptop to another laptop on t
 - 🔒 **Private** — Works only on local WiFi, no data leaves your network
 - 🔔 **Accept/Reject** — You choose whether to accept incoming shares
 
-### 🖥️ Use Cases
+## Install (Linux)
 
-- **Pair Programming** — Share your code editor, your partner can type directly
-- **Group Projects** — Share research/docs across the table without a projector
-- **Lab Work** — Send a running experiment window to your partner's screen
-- **Quick Help** — Share your terminal so your friend can help debug
+### Option 1: Quick Install (Recommended)
 
-## Download
+```bash
+# 1. Download the AppImage and install.sh from the Releases page
+# 2. Run:
+chmod +x install.sh
+./install.sh
+```
 
-Go to the [**Releases**](../../releases) page and download the latest version for your OS.
+Then search **"ScreenLink"** in your app launcher — done!
 
-### Linux
+### Option 2: Manual
 
-1. Download `ScreenLink-x.x.x-x86_64.AppImage`
-2. Make it executable:
-   ```bash
-   chmod +x ScreenLink-*.AppImage
-   ```
-3. Run it:
-   ```bash
-   ./ScreenLink-*.AppImage
-   ```
+```bash
+# Download the AppImage from Releases, then:
+chmod +x ScreenLink-*.AppImage
+./ScreenLink-*.AppImage
+```
 
-> **Requirements:** Linux with X11, `xdotool` and `wmctrl` for full functionality:
-> ```bash
-> sudo apt install xdotool wmctrl
-> ```
+### Dependencies
 
-## How It Works
+For full functionality (remote input + window management), install:
+```bash
+sudo apt install xdotool wmctrl
+```
 
-1. **Open ScreenLink** on both laptops (same WiFi)
-2. They **discover each other** automatically
-3. Right-click the **tray icon** → pick a window → pick a device
-4. The other laptop gets a **notification** → accepts → sees the window live
+## How to Use
+
+1. **Install ScreenLink** on both laptops
+2. **Connect to the same WiFi**
+3. **Open ScreenLink** on both — they find each other automatically
+4. **Right-click the tray icon** → pick a window → pick a device
+5. The other laptop gets a popup → **Accept** → sees the window live
 
 ## Screenshots
 
 *Coming soon*
+
+## Download
+
+👉 Go to the [**Releases**](../../releases) page to download the latest version.
 
 ## License
 
