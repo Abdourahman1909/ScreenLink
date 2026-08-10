@@ -1,68 +1,113 @@
-# ScreenLink
-
-> Share any window with nearby laptops — real-time collaborative screen sharing over local WiFi.
-
 <p align="center">
-  <img src="icon.png" width="128" height="128" alt="ScreenLink Icon" />
+  <img src="icon.png" width="128" height="128" alt="Parallel icon" />
 </p>
 
-## What is ScreenLink?
+<h1 align="center">Parallel</h1>
 
-ScreenLink lets you **share any window** from your laptop to another laptop on the same WiFi — instantly. No accounts, no servers, no internet required. Just open the app on both laptops and start collaborating.
+<p align="center">
+  Private screen collaboration for computers on the same local network.
+</p>
 
-### ✨ Features
+<p align="center">
+  <a href="../../releases/latest"><strong>Download the latest release</strong></a>
+</p>
 
-- 📡 **Auto-Discovery** — Laptops find each other automatically (zero configuration)
-- 📺 **Window Sharing** — Share any specific window, not your entire screen
-- 🖱️ **Remote Input** — The other person can click and type on the shared window
-- 👻 **Send Away** — Hide the window from your screen to free space (other laptop still sees it)
-- 🔒 **Private** — Works only on local WiFi, no data leaves your network
-- 🔔 **Accept/Reject** — You choose whether to accept incoming shares
+## About Parallel
 
-## Install (Linux)
+Parallel connects nearby computers without accounts, cloud storage, or a central server. Create a room, let other computers on the same network join, and begin sharing your screen.
 
-### Option 1: Quick Install (Recommended)
+The public repository is the official home for Parallel downloads and user documentation. The application source is maintained in a separate private repository.
+
+## Features
+
+- Automatic discovery on the same Wi-Fi or Ethernet network
+- Optional room passwords
+- Standard and administrator-managed collaboration rooms
+- One-to-many screen sharing
+- Up to 4K/60 FPS when the network and computers support it
+- Host-approved remote control for supported Linux sharing computers
+- Clipboard sharing
+- File transfer up to 2 MB
+- No account or internet connection required
+
+## Platform support
+
+| Capability | Linux | Windows |
+| --- | --- | --- |
+| Create and join rooms | Yes | Yes |
+| Share and view a screen | Yes | Yes |
+| Collaboration rooms | Yes | Yes |
+| Clipboard and file transfer | Yes | Yes |
+| Control a Linux sharing computer | Yes | Yes |
+| Control a Windows sharing computer | Not yet | Not yet |
+
+Remote control depends on the operating system of the computer sharing its screen. Parallel automatically hides the control request when the sharing computer does not support it.
+
+## Install on Windows
+
+1. Download `Parallel-Setup-0.2.0-x64.exe` from the [latest release](../../releases/latest).
+2. Run the installer and follow the setup steps.
+3. When Windows Firewall asks for permission, allow Parallel on **Private networks** only.
+4. Open Parallel from the Start menu or desktop shortcut.
+
+The current installer is not code-signed. Windows may therefore display an “Unknown publisher” or SmartScreen warning. Only continue after confirming that the installer came from this repository and that its SHA-256 value matches `SHA256SUMS.txt` in the release.
+
+## Run on Linux
+
+1. Download `Parallel-0.2.0-x86_64.AppImage` from the [latest release](../../releases/latest).
+2. Make it executable and run it:
 
 ```bash
-# 1. Download the AppImage and install.sh from the Releases page
-# 2. Run:
-chmod +x install.sh
-./install.sh
+chmod +x Parallel-0.2.0-x86_64.AppImage
+./Parallel-0.2.0-x86_64.AppImage
 ```
 
-Then search **"ScreenLink"** in your app launcher — done!
-
-### Option 2: Manual
+For launcher integration, download `install-linux.sh` beside the AppImage and run:
 
 ```bash
-# Download the AppImage from Releases, then:
-chmod +x ScreenLink-*.AppImage
-./ScreenLink-*.AppImage
+chmod +x install-linux.sh
+./install-linux.sh
 ```
 
-### Dependencies
+On Ubuntu, X11 remote control may require `xdotool`, while AppImage support on some releases may require `libfuse2`:
 
-For full functionality (remote input + window management), install:
 ```bash
-sudo apt install xdotool wmctrl
+sudo apt install xdotool libfuse2
 ```
 
-## How to Use
+Wayland remote control uses the desktop’s XDG portal and displays a system permission dialog.
 
-1. **Install ScreenLink** on both laptops
-2. **Connect to the same WiFi**
-3. **Open ScreenLink** on both — they find each other automatically
-4. **Right-click the tray icon** → pick a window → pick a device
-5. The other laptop gets a popup → **Accept** → sees the window live
+## Using Parallel
 
-## Screenshots
+1. Connect both computers to the same trusted Wi-Fi or Ethernet network.
+2. Open Parallel on every computer.
+3. Give each computer a recognizable device name.
+4. On one computer, create a Share Room or Collaboration Room.
+5. On the other computer, select the discovered room or enter its six-character code.
+6. Start sharing from the room dashboard.
 
-*Coming soon*
+## Network and privacy
 
-## Download
+Parallel does not use an external signaling or media server. Discovery, coordination and screen traffic remain on the local network. WebRTC encrypts the screen stream and remote-input channel.
 
-👉 Go to the [**Releases**](../../releases) page to download the latest version.
+Use Parallel only on a trusted private network. Clipboard and file-transfer messages use the local signaling connection and should not be used on an untrusted or public Wi-Fi network.
+
+## Verify a download
+
+Linux:
+
+```bash
+sha256sum -c SHA256SUMS.txt
+```
+
+Windows PowerShell:
+
+```powershell
+Get-FileHash .\Parallel-Setup-0.2.0-x64.exe -Algorithm SHA256
+```
+
+Compare the result with the Windows entry in `SHA256SUMS.txt`.
 
 ## License
 
-All rights reserved. This software is provided as-is for personal use.
+Parallel is proprietary software provided for personal, non-commercial use. See [LICENSE](LICENSE) for the complete terms.
