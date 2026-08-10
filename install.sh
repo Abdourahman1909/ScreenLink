@@ -61,6 +61,13 @@ else
   echo "   ⚠️  wmctrl not found — install with: sudo apt install wmctrl"
 fi
 
+# Check for libfuse2 (required for AppImages on Ubuntu 22.04+)
+if dpkg -l | grep -q libfuse2; then
+  echo "   ✅ libfuse2 found"
+else
+  echo "   ⚠️  libfuse2 not found (required for AppImage) — install with: sudo apt install libfuse2"
+fi
+
 echo ""
 echo "✅ ScreenLink installed!"
 echo "   Search for 'ScreenLink' in your app launcher, or run: $APP_NAME"
